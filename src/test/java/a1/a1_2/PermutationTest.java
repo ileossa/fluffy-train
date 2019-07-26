@@ -29,4 +29,28 @@ class PermutationTest {
         Permutation permutation = new Permutation();
         Assertions.assertFalse(permutation.check("apple", "banana"));
     }
+
+    @Test
+    public void should_return_true_with_numbers_strings() {
+        Permutation permutation = new Permutation();
+        Assertions.assertTrue(permutation.check("1234", "4321"));
+    }
+
+    @Test
+    public void should_return_false_with_numbers_strings() {
+        Permutation permutation = new Permutation();
+        Assertions.assertTrue(permutation.check("1234", "1234"));
+    }
+
+    @Test
+    public void should_return_true_with_special_characters() {
+        Permutation permutation = new Permutation();
+        Assertions.assertTrue(permutation.check("&éù%", "%ùé&"));
+    }
+
+    @Test
+    public void should_return_false_with_special_characters() {
+        Permutation permutation = new Permutation();
+        Assertions.assertFalse(permutation.check("&éù%", "&éù%"));
+    }
 }
