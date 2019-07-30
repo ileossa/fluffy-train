@@ -17,11 +17,11 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("palindrome challenge")
 class PalindromePermutationTest {
 
-    PalindromePermutation palindromePermutation;
+    static PalindromePermutation palindromePermutation;
 
     @BeforeAll
-    public void init() {
-        this.palindromePermutation = new PalindromePermutation();
+    public static void init() {
+        palindromePermutation = new PalindromePermutation();
     }
 
     @Test
@@ -37,5 +37,10 @@ class PalindromePermutationTest {
     @Test
     public void should_detect_blank_string() {
         assertThrows(RuntimeException.class, () -> palindromePermutation.check("     "));
+    }
+
+    @Test
+    public void should_return_true_with_lower_and_upper_case() {
+        assertTrue(palindromePermutation.check("oO"));
     }
 }

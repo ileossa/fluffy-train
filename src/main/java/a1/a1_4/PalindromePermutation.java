@@ -10,7 +10,19 @@ package a1.a1_4;
  * Output: TRUE
  */
 public class PalindromePermutation {
-    public boolean check(String kayak) {
-        return false;
+
+    public boolean check(String input) {
+
+        if (input.isBlank()) {
+            throw new RuntimeException("Input mustn't blank");
+        }
+
+        int length = input.length() - 1;
+        for (int i = length; i >= 0; i--) {
+            if (input.charAt(i) != input.charAt(length - i)) {
+                return Boolean.FALSE;
+            }
+        }
+        return Boolean.TRUE;
     }
 }
