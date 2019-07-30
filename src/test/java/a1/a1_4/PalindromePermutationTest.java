@@ -20,27 +20,27 @@ class PalindromePermutationTest {
     static PalindromePermutation palindromePermutation;
 
     @BeforeAll
-    public static void init() {
+    static void init() {
         palindromePermutation = new PalindromePermutation();
     }
 
     @Test
-    public void should_return_true_with_kayak() {
+    void should_return_true_with_kayak() {
         assertTrue(palindromePermutation.check("kayak"));
     }
 
     @Test
-    public void should_return_false_with_banana() {
+    void should_return_false_with_banana() {
         assertFalse(palindromePermutation.check("banana"));
     }
 
     @Test
-    public void should_detect_blank_string() {
+    void should_detect_blank_string() {
         assertThrows(RuntimeException.class, () -> palindromePermutation.check("     "));
     }
 
     @Test
-    public void should_return_true_with_lower_and_upper_case() {
+    void should_return_true_with_lower_and_upper_case() {
         assertTrue(palindromePermutation.check("oO"));
     }
 }

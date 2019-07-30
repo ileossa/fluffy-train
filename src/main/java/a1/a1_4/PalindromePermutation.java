@@ -9,14 +9,14 @@ package a1.a1_4;
  * Input: KAYAK
  * Output: TRUE
  */
-public class PalindromePermutation {
+class PalindromePermutation {
 
-    public boolean check(String input) {
+    boolean check(String input) {
 
         if (input.isBlank()) {
             throw new RuntimeException("Input mustn't blank");
         }
-
+        input = input.toLowerCase();
         int length = input.length() - 1;
         for (int i = length; i >= 0; i--) {
             if (input.charAt(i) != input.charAt(length - i)) {
