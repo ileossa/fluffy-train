@@ -6,6 +6,16 @@ package a1.a1_2;
  */
 public class Permutation {
     public boolean check(String str1, String str2) {
-        return false;
+
+        if (str1.length() != str2.length()) {
+            return Boolean.FALSE;
+        }
+
+        for (int i = 0; i < str1.length(); i++) {
+            if (str1.charAt(i) != str2.charAt(str1.length() - 1 - i)) {
+                return Boolean.FALSE;
+            }
+        }
+        return Boolean.TRUE;
     }
 }
