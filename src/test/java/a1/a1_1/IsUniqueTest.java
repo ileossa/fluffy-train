@@ -1,6 +1,8 @@
 package a1.a1_1;
 
 import jdk.jfr.Description;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
 import static java.lang.Boolean.FALSE;
@@ -12,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * @see a1.a1_1.IsUnique#check(String)
  */
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class IsUniqueTest {
 
     IsUnique isUnique = new IsUnique();

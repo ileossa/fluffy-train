@@ -1,13 +1,14 @@
 package a1.a1_2;
 
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 /**
  * Check Permutation
  * Given two strings, write a method to decide if one is a permutation of the other.
  */
+@DisplayName("Test URLify challenge")
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class PermutationTest {
 
 
