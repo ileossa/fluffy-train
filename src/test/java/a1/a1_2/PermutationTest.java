@@ -38,9 +38,9 @@ class PermutationTest {
     }
 
     @Test
-    public void should_return_false_with_numbers_strings() {
+    public void should_return_false_no_permutation_with_numbers_strings() {
         Permutation permutation = new Permutation();
-        Assertions.assertTrue(permutation.check("1234", "1234"));
+        Assertions.assertFalse(permutation.check("1234", "1234"));
     }
 
     @Test
@@ -50,7 +50,7 @@ class PermutationTest {
     }
 
     @Test
-    public void should_return_false_with_special_characters() {
+    public void should_return_false_no_permutation_with_special_characters() {
         Permutation permutation = new Permutation();
         Assertions.assertFalse(permutation.check("&éù%", "&éù%"));
     }
