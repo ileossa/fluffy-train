@@ -2,6 +2,12 @@ package a1.a1_2;
 
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Check Permutation
@@ -11,47 +17,43 @@ import org.junit.jupiter.api.*;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class PermutationTest {
 
+    static Permutation permutation;
 
-    @Test
-    public void should_return_true_with_two_strings_permutation() {
-        Permutation permutation = new Permutation();
-        Assertions.assertTrue(permutation.check("apple", "elppa"));
+    @BeforeAll
+    static void init() {
+        permutation = new Permutation();
     }
 
-
-    @Test
-    public void should_return_false_with_two_differents_string() {
-        Permutation permutation = new Permutation();
-        Assertions.assertFalse(permutation.check("apple", "snake"));
+    @ParameterizedTest
+    @ValueSource(strings = {"pplea", "pleap", "leapp", "eappl", "elppa", "leppa"})
+    @NullAndEmptySource
+    void should_success_permutation_from_apple(String expected) {
+        assertTrue(permutation.check("apple", expected));
     }
 
-    @Test
-    public void should_return_false_with_string_not_smae_lenght() {
-        Permutation permutation = new Permutation();
-        Assertions.assertFalse(permutation.check("apple", "banana"));
-    }
-
-    @Test
-    public void should_return_true_with_numbers_strings() {
-        Permutation permutation = new Permutation();
-        Assertions.assertTrue(permutation.check("1234", "4321"));
+    @ParameterizedTest
+    @ValueSource(strings = {"apple", "snake", "banana"})
+    void should_fail(String notExpected) {
+        assertFalse(permutation.check("apple", notExpected));
     }
 
     @Test
-    public void should_return_false_no_permutation_with_numbers_strings() {
-        Permutation permutation = new Permutation();
-        Assertions.assertFalse(permutation.check("1234", "1234"));
+    void should_success_with_numbers_strings() {
+        assertTrue(permutation.check("1234", "4321"));
     }
 
     @Test
-    public void should_return_true_with_special_characters() {
-        Permutation permutation = new Permutation();
-        Assertions.assertTrue(permutation.check("&éù%", "%ùé&"));
+    void should_fail_no_permutation_with_numbers_strings() {
+        assertFalse(permutation.check("1234", "1234"));
     }
 
     @Test
-    public void should_return_false_no_permutation_with_special_characters() {
-        Permutation permutation = new Permutation();
-        Assertions.assertFalse(permutation.check("&éù%", "&éù%"));
+    void should_success_with_special_characters() {
+        assertTrue(permutation.check("&éù%", "%ùé&"));
+    }
+
+    @Test
+    void should_fail_no_permutation_with_special_characters() {
+        assertFalse(permutation.check("&éù%", "&éù%"));
     }
 }
